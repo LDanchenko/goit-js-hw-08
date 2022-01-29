@@ -1,9 +1,16 @@
 const form = document.querySelector('.feedback-form');
-console.log(form);
+const emailInput = document.querySelector('input[name = email]');
+const messageInput = document.querySelector('textarea[name = message]');
+
+let email = JSON.parse(localStorage.getItem('feedback-form-state')).email ?? '';
+let message = JSON.parse(localStorage.getItem('feedback-form-state')).message ?? '';
+
 const data = {
-  email: '',
-  message: '',
+  email,
+  message,
 };
+emailInput.value = email;
+messageInput.value = message;
 
 form.addEventListener('input', event => {
   data[event.target.name] = event.target.value;
