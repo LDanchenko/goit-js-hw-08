@@ -18,6 +18,11 @@ form.addEventListener(
 
 form.addEventListener('submit', event => {
   event.preventDefault();
+
+  if (!emailInput.value || !messageInput.value) {
+    alert('Заполните все поля!');
+    return;
+  }
   console.log(data);
   emailInput.value = '';
   messageInput.value = '';
